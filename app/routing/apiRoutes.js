@@ -9,7 +9,7 @@ module.exports = function (app) {
         var user = req.body;
         var friendDiffs = [];
         var diff = 0;
-        var maxIndex=0;
+        // var maxIndex=0;
         console.log(user);
 
         for (var i in user.scores) {
@@ -27,14 +27,15 @@ module.exports = function (app) {
 
         }
         console.log(friendDiffs);
-        // var max = Math.max(...friendDiffs);
-        for (var i in friendDiffs) {
-            if(friendDiffs[i]>friendDiffs[i+1]) {
-                maxIndex = i;
-            }
-        }
+        var max = Math.max(...friendDiffs);
+        // for (var i in friendDiffs) {
+        //     if(friendDiffs[i]>friendDiffs[i+1]) {
+        //         maxIndex = i;
+        //     }
+        // }
 
-        console.log("Max : " + maxIndex);
+        console.log("Max : " + max);
+        var maxIndex = friendDiffs.indexOf(max);
         console.log("Max index: " + maxIndex);
 
     });
