@@ -152,10 +152,10 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                       <h5 class="modal-title">header</h5> 
+                       <h5 class="modal-title">Best Friend</h5> 
                     </div>
                     <div class="modal-body">
-                        <p>body</p>
+                        <div id="bestFriendName"></div>
                     </div>
                     <div class="modal-footer">
                         <p>footer</p>
@@ -187,11 +187,13 @@
             var url = "http://localhost:" + PORT;
             $.post(url + "/api/friends", newUser, function(data) {
                 console.log(data);
+                $("#bestFriendName").text(data.name);
                 
             });
             $("#friendModal").show();
             // $(".container").css("background", "black");
             $(".container").addClass("backLayer");
+            
         }
     </script>
 </body>

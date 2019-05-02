@@ -33,7 +33,7 @@ module.exports = function (app) {
         var maxIndex = friendDiffs.indexOf(max);
         console.log("Max index: " + maxIndex);
         console.log("Best Friend: " + JSON.stringify(friends[maxIndex]));
-        // res.send(friends[maxIndex]);
+        res.send(friends[maxIndex]);
 
     });
 }
