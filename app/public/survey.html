@@ -4,34 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    
+
     <title>Friend Finder</title>
     <style>
         #friendModal {
-           position:fixed;
-           top:100px;
-           display: none;
-           left:30%;
-           width:30%;
-           z-index: 101;
+            position: fixed;
+            top: 100px;
+            display: none;
+            left: 30%;
+            width: 30%;
+            z-index: 101;
         }
+
         .backLayer {
             background: black;
             /* opacity: 0.0; */
         }
+
         .blackout {
-            background:black;
-            width:100%;
-            height:100%;
+            background: black;
+            width: 100%;
+            height: 100%;
             position: fixed;
-            top:0px;
-            left:0px;
+            top: 0px;
+            left: 0px;
             z-index: 100;
             display: none;
         }
+        .footer {
+           
+           width: 40%;
+           margin:0 auto;
+         
+       }
     </style>
 </head>
 
@@ -157,32 +166,37 @@
             </div>
             <button onclick="submitHandler(event)" class="btn btn-primary" type="submit">Submit</button>
         </form>
-        
+
 
     </div>
-    <div id="friendModal" role="dialog" >
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                       <h5 class="modal-title">Best Friend</h5> 
-                    </div>
-                    <div class="modal-body">
-                        <div id="bestFriendName"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button onclick="closeModal()" type=button>Close</button>
-                    </div>
+    <div id="friendModal" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Best Friend</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="bestFriendName"></div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="closeModal()" type=button>Close</button>
                 </div>
             </div>
         </div>
-        <div class="blackout">test</div>
+    </div>
+    <div class="blackout">test</div>
+    <div class="footer">
+        <a href="/api/friends">API Friends List</a>
+        <span>|</span>
+        <a href="#">Github Repo</a>
+    </div>
     <script>
         var PORT = 8080;
         function submitHandler(event) {
             event.preventDefault();
 
             var newUser = {
-                name:$("#name").val().trim(),
+                name: $("#name").val().trim(),
                 scores: [
                     $("#quest1").val(),
                     $("#quest2").val(),
@@ -198,15 +212,15 @@
                 ]
             }
             var url = "http://localhost:" + PORT;
-            $.post(url + "/api/friends", newUser, function(data) {
+            $.post(url + "/api/friends", newUser, function (data) {
                 console.log(data);
                 $("#bestFriendName").text(data.name);
-                
+
             });
             $("#friendModal").show();
             $(".blackout").show();
             $(".container").addClass("backLayer");
-            
+
         }
         function closeModal() {
             $("#friendModal").hide();
