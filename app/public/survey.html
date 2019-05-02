@@ -15,6 +15,7 @@
            top:100px;
            display: none;
            left:30%;
+           width:30%;
         }
         .backLayer {
             background: black;
@@ -158,7 +159,7 @@
                         <div id="bestFriendName"></div>
                     </div>
                     <div class="modal-footer">
-                        <p>footer</p>
+                        <button onclick="closeModal()" type=button>Close</button>
                     </div>
                 </div>
             </div>
@@ -191,9 +192,13 @@
                 
             });
             $("#friendModal").show();
-            // $(".container").css("background", "black");
+            
             $(".container").addClass("backLayer");
             
+        }
+        function closeModal() {
+            $("#friendModal").hide();
+            $(".container").removeClass("backLayer");
         }
     </script>
 </body>
