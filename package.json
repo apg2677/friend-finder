@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/apg2677/friend-finder/issues"
   },
-  "homepage": "https://github.com/apg2677/friend-finder#readme"
+  "homepage": "https://github.com/apg2677/friend-finder#readme",
+  "dependencies": {}
 }

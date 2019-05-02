@@ -27,7 +27,7 @@ module.exports = function (app) {
 
         }
         console.log(friendDiffs);
-        var max = Math.max(...friendDiffs);
+        var max = Math.min(...friendDiffs);
       
         console.log("Max : " + max);
         var maxIndex = friendDiffs.indexOf(max);
