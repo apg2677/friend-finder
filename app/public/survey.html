@@ -16,10 +16,21 @@
            display: none;
            left:30%;
            width:30%;
+           z-index: 101;
         }
         .backLayer {
             background: black;
-            opacity: 0.0;
+            /* opacity: 0.0; */
+        }
+        .blackout {
+            background:black;
+            width:100%;
+            height:100%;
+            position: fixed;
+            top:0px;
+            left:0px;
+            z-index: 100;
+            display: none;
         }
     </style>
 </head>
@@ -164,6 +175,7 @@
                 </div>
             </div>
         </div>
+        <div class="blackout">test</div>
     <script>
         var PORT = 8080;
         function submitHandler(event) {
@@ -192,13 +204,14 @@
                 
             });
             $("#friendModal").show();
-            
+            $(".blackout").show();
             $(".container").addClass("backLayer");
             
         }
         function closeModal() {
             $("#friendModal").hide();
             $(".container").removeClass("backLayer");
+            $(".blackout").hide();
         }
     </script>
 </body>
