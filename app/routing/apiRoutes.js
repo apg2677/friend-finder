@@ -28,15 +28,12 @@ module.exports = function (app) {
         }
         console.log(friendDiffs);
         var max = Math.max(...friendDiffs);
-        // for (var i in friendDiffs) {
-        //     if(friendDiffs[i]>friendDiffs[i+1]) {
-        //         maxIndex = i;
-        //     }
-        // }
-
+      
         console.log("Max : " + max);
         var maxIndex = friendDiffs.indexOf(max);
         console.log("Max index: " + maxIndex);
+        console.log("Best Friend: " + JSON.stringify(friends[maxIndex]));
+        // res.send(friends[maxIndex]);
 
     });
 }
