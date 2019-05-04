@@ -211,8 +211,8 @@
 
                 ]
             }
-            var url = "http://localhost:" + PORT;
-            $.post(url + "/api/friends", newUser, function (data) {
+            //  var url = "http://localhost:" + PORT; -> removed this, no using a relative path
+            $.post("/api/friends", newUser, function (data) {
                 console.log(data);
                 $("#bestFriendName").text(data.name);
 
