@@ -23,7 +23,7 @@ module.exports = function (app) {
             }
             console.log(friends[i].name + " Diff: " + diff);
             friendDiffs.push(diff);
-
+            diff=0;
 
         }
         console.log(friendDiffs);

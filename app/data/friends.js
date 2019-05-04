@@ -14,7 +14,7 @@ var friends =
     },
     {
         name: "Kim",
-        scores: [3,2,3,2,2,3,4,5,5,5]
+        scores: [5,5,5,5,5,5,5,5,5,5]
     },
     {
         name: "Pat",
